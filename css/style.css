@@ -549,6 +549,9 @@ strong {
 }
 
 /* F-O-O-T-E-R */
+.flex-top-ftr {
+    margin-bottom: 4rem;
+}
 .col-logo img {
     width: 150px;
 }
@@ -591,7 +594,15 @@ strong {
     position: relative;
 }
 
+.email-box input:hover {
+    border: 0.2px solid rgb(75 85 99);
+}
+
+
+
 .email-box input {
+    border: none;
+    box-shadow: none;
     color: rgb(75 85 99);
     padding: 12px 20px;
     font-weight: 500;
@@ -599,16 +610,16 @@ strong {
     line-height: 1.25rem;
     text-align: left;
     width: 100%;
-    outline: 0.3px solid rgb(75 85 99);
+    outline: 0.1px solid rgb(228 228 231);
     border-radius: .25rem;
 }
 
 .email-box button {
     position: absolute;
     left: 18rem;
-    top: 0.3rem;
+    top: 0.2rem;
     background-color: #1B1B1B;
-    padding: 8px 20px;
+    padding: 7px 20px;
     color: white;
     font-size: 16px;
     font-weight: 500;
@@ -644,12 +655,21 @@ strong {
     bottom: 4rem;
     right: 4rem;
     position: fixed;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.377);
 }
 
 .whatsapp-icon i {
     color: white;
     font-size: 40px;
     line-height: 1;
+}
+
+.whatsapp-icon i:hover {
+    color: #1B1B1B;
+}
+
+.whatsapp-icon:hover {
+    background-color: white;
 }
 
 .fa-angle-down,
@@ -676,6 +696,24 @@ strong {
         width: 100%;
     }
 
+    .flex-login:hover {
+        background: #e5e7eb;
+    }
+
+    .first-div {
+        border-bottom: 0.1rem solid rgb(228 228 231);
+        padding-bottom: 1rem;
+    }
+
+    .js-menue .nav-bar {
+        margin-top: 1rem !important;
+    }
+
+    .nav-bar {
+        border-top: 0.1rem solid rgb(228 228 231);
+        padding-top: 1rem;
+    }
+
     hr.custom-hr,
     hr.custom-hr-btm,
     div.top-hdr,
@@ -697,6 +735,10 @@ strong {
         display: flex;
         flex-direction: column;
         row-gap: 3rem;
+    }
+
+    .nav-bar {
+        background-color: rgb(255 255 255);
     }
 
     .dots-none {
@@ -790,6 +832,15 @@ strong {
         background: white;
     }
 
+    .head div {
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(243 244 246);
+        cursor: pointer;
+        padding: 7px 6px;
+        align-items: center;
+    }
+
     .p-discription-js,
     .p-morinfo-js {
         display: none;
@@ -836,6 +887,10 @@ strong {
         padding: 1rem 0.5rem;
     }
 
+    .cart-icon .cart-count {
+        right: 0;
+    }
+
     .mobile-ftr i {
         width: 40px;
         height: 40px;
@@ -852,6 +907,11 @@ strong {
 
     footer {
         padding-bottom: 10rem;
+    }
+
+    .end-page {
+        padding-bottom: 2rem;
+        border-bottom: 0.7rem solid rgb(228 228 231);
     }
 
     .fa-angle-down {
