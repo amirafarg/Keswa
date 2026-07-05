@@ -16,7 +16,7 @@ closeMenu.addEventListener("click", () => {
 // _____________________
 // header
 
-let colors = document.querySelectorAll(".dot");
+let colors = document.querySelectorAll(".color-dot");
 let mainImg = document.querySelector(".big-photo img");
 let smlPh = document.querySelectorAll(".sml-ph img");
 
@@ -55,21 +55,52 @@ colors.forEach(color => {
 let zoomImg = document.getElementById("bigImg");
 let bigPhoto = document.querySelector(".big-photo");
 
-bigPhoto.addEventListener("mousemove", (e) => {
+if (window.innerWidth >= 700) {
 
-    let rect = bigPhoto.getBoundingClientRect();
+    bigPhoto.addEventListener("mousemove", (e) => {
 
-    let x = ((e.clientX - rect.left) / rect.width) * 100;
-    let y = ((e.clientY - rect.top) / rect.height) * 100;
+        let rect = bigPhoto.getBoundingClientRect();
 
-    zoomImg.style.transformOrigin = `${x}% ${y}%`;
-    zoomImg.style.transform = "scale(2)";
-});
+        let x = ((e.clientX - rect.left) / rect.width) * 100;
+        let y = ((e.clientY - rect.top) / rect.height) * 100;
 
-bigPhoto.addEventListener("mouseleave", () => {
-    zoomImg.style.transformOrigin = "center";
-    zoomImg.style.transform = "scale(1)";
-});
+        zoomImg.style.transformOrigin = `${x}% ${y}%`;
+        zoomImg.style.transform = "scale(1.3)";
+    });
+
+    bigPhoto.addEventListener("mouseleave", () => {
+
+        zoomImg.style.transformOrigin = "center";
+        zoomImg.style.transform = "scale(1)";
+
+    });
+
+}
+
+// zoom-in-mobile
+// if (window.innerWidth < 700) {
+
+//     let zoomImg = document.getElementById("bigImg");
+//     let bigPhoto = document.querySelector(".big-photo");
+
+//     bigPhoto.addEventListener("mousemove", (e) => {
+
+//         let rect = bigPhoto.getBoundingClientRect();
+
+//         let x = ((e.clientX - rect.left) / rect.width) * 100;
+//         let y = ((e.clientY - rect.top) / rect.height) * 100;
+
+//         zoomImg.style.transformOrigin = `${x}% ${y}%`;
+//         zoomImg.style.transform = "scale(2)";
+//     });
+
+//     bigPhoto.addEventListener("mouseleave", () => {
+
+//         zoomImg.style.transformOrigin = "center";
+//         zoomImg.style.transform = "scale(1)";
+//     });
+
+// }
 
 // عند الضغط على الصوره الصغيره تظهر في الكبيره
 smlPh.forEach((img) => {
@@ -90,6 +121,8 @@ smlPh.forEach((img) => {
     });
 
 });
+
+// صور المنتجات في الموبايل
 
 // تثبيت الbottom header
 let bottomHdr = document.querySelector(".bottom-hdr");
@@ -214,8 +247,8 @@ if (isMobile()) {
     const pMorInfo = document.querySelector(".p-morinfo-js");
 
     // بداية: كله مقفول
-    pDiscription.classList.remove("active");
-    pMorInfo.classList.remove("active");
+    // pDiscription.classList.remove("active");
+    // pMorInfo.classList.remove("active");
 
     discription.addEventListener("click", () => {
 
@@ -256,3 +289,30 @@ if (isMobile()) {
     });
 
 }
+
+// accordion-footer
+let sections = document.querySelectorAll(".flex-js");
+
+sections.forEach(section => {
+
+    let content = section.querySelector(".li-js");
+    let down = section.querySelector(".fa-angle-down");
+    let up = section.querySelector(".fa-angle-up");
+
+    up.style.display = "none";
+
+    section.addEventListener("click", () => {
+
+        content.classList.toggle("show");
+
+        if (content.classList.contains("show")) {
+            down.style.display = "none";
+            up.style.display = "block";
+        } else {
+            down.style.display = "block";
+            up.style.display = "none";
+        }
+
+    });
+
+});

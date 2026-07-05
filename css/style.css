@@ -203,6 +203,22 @@ body {
     padding-top: 2rem;
 }
 
+/* الزووم */
+.big-photo {
+    overflow: hidden;
+    width: 500px;
+    height: 600px;
+    position: relative;
+    cursor: zoom-in;
+}
+
+.big-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .sml-ph {
     width: 110px;
     height: 160px;
@@ -218,28 +234,6 @@ body {
 .sml-ph img.active {
     border: 1px solid black;
 }
-
-/* الزووم */
-.big-photo {
-    overflow: hidden;
-    width: 500px;
-    height: 600px;
-    position: relative;
-    cursor: zoom-in;
-}
-
-.big-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform .1s linear;
-    border-radius: 5px;
-}
-
-/* .big-photo:hover img {
-    transform: scale(2);
-} */
 
 .flex-clogs h2 {
     font-size: 30px;
@@ -443,6 +437,12 @@ strong {
     padding: 1.25rem 0.75rem;
 }
 
+
+.head .accordion-item {
+    display: flex;
+    flex-direction: column;
+}
+
 .head {
     border-bottom: 0;
 }
@@ -571,14 +571,14 @@ strong {
     font-weight: 600;
 }
 
-.ul-bar a,
+.li-js a,
 .col-email p {
     color: rgb(82 82 91);
     font-size: .975rem;
     line-height: 2.4rem;
 }
 
-.ul-bar a:hover {
+.li-js a:hover {
     color: black;
 }
 
@@ -652,14 +652,21 @@ strong {
     line-height: 1;
 }
 
+.fa-angle-down,
+.fa-angle-up {
+    display: none !important;
+}
+
 /* fixed-footer */
 .mobile-ftr {
     display: none;
 }
 
+.mobile-slider,
 .dots-none {
     display: none;
 }
+
 @media (max-width: 700px) {
     header {
         padding: 1rem 0;
@@ -692,45 +699,77 @@ strong {
         row-gap: 3rem;
     }
 
-    .hero-sec {
-        padding-top: 0;
-    }
-
     .dots-none {
         display: block;
     }
 
-    /* .hero-sec .sml-ph {
+    .hero-sec .sml-ph {
         display: none !important;
-    } */
+    }
 
-    .flex-photos{
+    .big-photo {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .big-photo::-webkit-scrollbar {
+        display: none;
+    }
+
+    .big-photo img {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .flex-photos {
+        position: relative;
+    }
+
+    .dots-none {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        position: absolute;
+        bottom: 1rem;
+        left: 11.8rem;
+    }
+
+    .slider-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ccc;
+    }
+
+    .slider-dot.active {
+        background: #000;
+    }
+
+    .flex-photos {
         flex-direction: column;
     }
 
-    .sml-ph{
+    .sml-ph {
         display: flex !important;
         flex-direction: row;
         gap: 10px;
-
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-
         -webkit-overflow-scrolling: touch;
         padding: 10px 0;
     }
 
-    .sml-ph img{
+    .sml-ph img {
         flex: 0 0 auto;
         width: 120px;
         height: 120px;
         object-fit: cover;
-
         border-radius: 10px;
         scroll-snap-align: start;
     }
 
-    .sml-ph::-webkit-scrollbar{
+    .sml-ph::-webkit-scrollbar {
         display: none;
     }
 
@@ -776,7 +815,7 @@ strong {
         z-index: 1000;
         left: 0;
         padding: 1.5rem 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.486) ;
+        border-top: 1px solid rgba(255, 255, 255, 0.486);
     }
 
     .whatsapp-icon {
@@ -801,8 +840,8 @@ strong {
         width: 40px;
         height: 40px;
     }
-    
-    
+
+
     .mobile-ftr i:hover {
         opacity: 90%;
     }
@@ -813,5 +852,50 @@ strong {
 
     footer {
         padding-bottom: 10rem;
+    }
+
+    .fa-angle-down {
+        display: block !important;
+    }
+
+    .flex-js {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .ul-bar {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .li-js {
+        display: none;
+        width: 100%;
+    }
+
+    .li-js ul {
+        padding: 0;
+    }
+
+    .li-js.show {
+        display: block;
+    }
+
+    .flex-js {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .fa-angle-up {
+        display: none;
     }
 }
