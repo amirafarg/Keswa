@@ -215,6 +215,10 @@ let morDe = document.querySelector(".more-de");
 let pDiscription = document.querySelector(".p-discription-js");
 let pMorInfo = document.querySelector(".p-morinfo-js");
 
+// الديف كله
+const descriptionTab = document.querySelector(".description-tab");
+const moreTab = document.querySelector(".more-tab");
+
 discription.addEventListener("click", () => {
     pDiscription.classList.add("active");
     pMorInfo.classList.remove("active");
@@ -246,44 +250,45 @@ if (isMobile()) {
     const pDiscription = document.querySelector(".p-discription-js");
     const pMorInfo = document.querySelector(".p-morinfo-js");
 
-    // بداية: كله مقفول
-    // pDiscription.classList.remove("active");
-    // pMorInfo.classList.remove("active");
+    const descriptionTab = document.querySelector(".description-tab");
+    const moreTab = document.querySelector(".more-tab");
 
-    discription.addEventListener("click", () => {
+    descriptionTab.addEventListener("click", () => {
 
         const isOpen = pDiscription.classList.contains("active");
 
-        // نقفل التاني الأول
         pMorInfo.classList.remove("active");
         morDe.classList.remove("active");
+        moreTab.classList.remove("active");
 
-        // toggle الحالي
         if (isOpen) {
             pDiscription.classList.remove("active");
             discription.classList.remove("active");
+            descriptionTab.classList.remove("active");
         } else {
             pDiscription.classList.add("active");
             discription.classList.add("active");
+            descriptionTab.classList.add("active");
         }
 
     });
 
-    morDe.addEventListener("click", () => {
+    moreTab.addEventListener("click", () => {
 
         const isOpen = pMorInfo.classList.contains("active");
 
-        // نقفل الأول
         pDiscription.classList.remove("active");
         discription.classList.remove("active");
+        descriptionTab.classList.remove("active");
 
-        // toggle الحالي
         if (isOpen) {
             pMorInfo.classList.remove("active");
             morDe.classList.remove("active");
+            moreTab.classList.remove("active");
         } else {
             pMorInfo.classList.add("active");
             morDe.classList.add("active");
+            moreTab.classList.add("active");
         }
 
     });

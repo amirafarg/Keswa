@@ -435,6 +435,7 @@ strong {
     font-size: 1.125rem;
     line-height: 1.75rem;
     padding: 1.25rem 0.75rem;
+    gap: 3rem;
 }
 
 
@@ -552,6 +553,7 @@ strong {
 .flex-top-ftr {
     margin-bottom: 4rem;
 }
+
 .col-logo img {
     width: 150px;
 }
@@ -819,6 +821,54 @@ strong {
     .head {
         display: flex;
         flex-direction: column !important;
+        row-gap: 0.5rem !important;
+    }
+
+    .head h2 {
+        color: #000;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    .p-discription-js h3,
+    .p-morinfo-js h3 {
+        font-size: 14px;
+        padding-top: 0rem;
+    }
+
+    .p-discription-js,
+    .p-morinfo-js span {
+        font-size: 0.9rem;
+        line-height: 1.8rem;
+        color: #71717A;
+    }
+
+    .p-discription-js {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* الافتراضي */
+    .description-tab .fa-angle-up,
+    .more-tab .fa-angle-up {
+        display: none;
+    }
+
+    .description-tab .fa-angle-down,
+    .more-tab .fa-angle-down {
+        display: block;
+    }
+
+    /* لما يبقى مفتوح */
+    .description-tab.active .fa-angle-up,
+    .more-tab.active .fa-angle-up {
+        display: block !important;
+    }
+
+    .description-tab.active .fa-angle-down,
+    .more-tab.active .fa-angle-down {
+        display: none !important;
     }
 
     .head h2.active::after {
@@ -827,9 +877,8 @@ strong {
         left: 0;
         bottom: -29px;
         /* يخليه راكب على الخط الأساسي */
-        width: 100%;
-        height: 2px;
-        background: white;
+        width: 0;
+        height: 0;
     }
 
     .head div {
